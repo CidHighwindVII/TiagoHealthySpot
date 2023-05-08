@@ -1,0 +1,60 @@
+﻿@model Healthy_Spot.Models.Equipamento
+@using Healthy_Spot.Models
+
+@{
+    ViewBag.Title = "Detalhe do Equipamento";
+} 
+
+<h2>Detalhe do Equipamento</h2>
+
+<div>
+    <h4>Equipamento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NMaquina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NMaquina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeEquipamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeEquipamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoEquipamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoEquipamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MusculoTrabalhado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusculoTrabalhado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagemPath)
+        </dt>
+
+        <dd>
+            <img class="img-thumbnail img-rounded" src="@Url.Content("~" + Model.ImagemPath)" width="400" height="400" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.NMaquina }) 
+    @Html.ActionLink("Lista de Equipamentos", "ListaEquipamentos")
+</p>
+

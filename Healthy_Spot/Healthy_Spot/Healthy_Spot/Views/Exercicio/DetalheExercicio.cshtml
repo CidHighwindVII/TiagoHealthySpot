@@ -1,0 +1,42 @@
+﻿@model Healthy_Spot.Models.Exercicio
+@using Healthy_Spot.Models
+@{
+    ViewBag.Title = "Detalhe do Exercicio";
+}
+
+<h2>Detalhe do Exercicio</h2>
+
+<div>
+    <h4>Exercicio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdExercicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdExercicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeExercicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeExercicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NMaquina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NMaquina)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.IdExercicio }) |
+    @Html.ActionLink("Lista de Exercicios", "ListaExercicios")
+</p>

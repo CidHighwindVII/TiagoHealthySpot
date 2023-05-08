@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Healthy_Spot.Models.Exercicio>
+
+@{
+    ViewBag.Title = "Listar Exercícios";
+}
+
+<h2>Listar Exercícios</h2>
+
+<p>
+    @Html.ActionLink("Criar Exercício", "CriaExercicio", null, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdExercicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeExercicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NMaquina)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdExercicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeExercicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NMaquina)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "EditaExercicio", new { id = item.NMaquina }) |
+            @Html.ActionLink("Detalhe", "DetalheExercicio", new { id = item.NMaquina }) |
+            @Html.ActionLink("Eliminar", "EliminaExercicio", new { id = item.NMaquina })
+        </td>
+    </tr>
+}
+
+</table>
