@@ -11,12 +11,11 @@ namespace Healthy_Spot.Controllers
 {
     public class ExercicioController : Controller
     {
-        // GET: Exercicio
+        [HttpPost]
         public ActionResult CriaExercicio()
         {
             return View();
         }
-
 
         [HttpPost]
         public ActionResult CriaExercicio(Exercicio exercicio)
@@ -46,6 +45,7 @@ namespace Healthy_Spot.Controllers
             
         }
 
+        [HttpGet]
         public ActionResult DetalheExercicio(int? id)
         {
             ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
@@ -79,7 +79,7 @@ namespace Healthy_Spot.Controllers
         }
 
 
-        // GET: Exercicio
+        [HttpGet]
         public ActionResult ListaExercicios()
         {
            
@@ -110,6 +110,8 @@ namespace Healthy_Spot.Controllers
                     }
                     return View(lista);
         }
+
+        [HttpPut]
         public ActionResult EditaExercicio(int? id)
         {
             ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
@@ -169,6 +171,8 @@ namespace Healthy_Spot.Controllers
             }
             return RedirectToAction("ListaExercicios");
         }
+
+        [HttpDelete]
         public ActionResult EliminaExercicio(int? id)
         {
             ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
@@ -200,7 +204,6 @@ namespace Healthy_Spot.Controllers
             }
             return RedirectToAction("ListaExercicios");
         }
-
 
         [HttpPost, ActionName("EliminaExercicio")]
         public ActionResult EliminaExercicioConfirmacao(int? id)

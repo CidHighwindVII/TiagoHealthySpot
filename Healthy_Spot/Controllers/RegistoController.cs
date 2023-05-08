@@ -14,16 +14,14 @@ using System.Web.Mvc;
 namespace Healthy_Spot.Controllers
 {
     public class RegistoController : Controller
-    {
-        // GET: Registo
-        public ActionResult CriaRegisto()
+    {		
+		public ActionResult CriaRegisto()
         {
             return View(new Utilizador());
         }
 
-
-        [HttpPost]
-        [AllowAnonymous]
+		[HttpPost]
+		[AllowAnonymous]
         public ActionResult CriaRegisto(Utilizador utilizador)
         {
             if (ModelState.IsValid)
@@ -97,13 +95,14 @@ namespace Healthy_Spot.Controllers
             }
             return RedirectToAction("Registo");
         }
+
+        [HttpGet]
         public ActionResult Login()
         {
             return View(new Utilizador());
         }
 
         [HttpPost]
-
         public ActionResult Login(Utilizador utilizador)
         {
             //if (ModelState.IsValid)

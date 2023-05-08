@@ -11,7 +11,8 @@ namespace Healthy_Spot.Controllers
 {
     public class UtilizadorController : Controller
     {
-        public ActionResult ListaUtilizador()
+        [HttpGet]
+        public ActionResult ListaUtilizadores()
         {
             try
             {
@@ -56,10 +57,8 @@ namespace Healthy_Spot.Controllers
                 return View("Erro", new HandleErrorInfo(ex, "Utilizador", "ListaUtilizadores"));
             }
         }
-
        
-        [HttpPost]
-       
+        [HttpPost]       
         public ActionResult DetalheUtilizador(int? id)
         {
             try
@@ -104,6 +103,7 @@ namespace Healthy_Spot.Controllers
             }
         }
 
+        [HttpPut]
         public ActionResult EditaUtilizador(int? id)
         {
             try
@@ -148,7 +148,7 @@ namespace Healthy_Spot.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         public ActionResult EditaUtilizador(Utilizador Util)
         {
             try
@@ -191,8 +191,8 @@ namespace Healthy_Spot.Controllers
 
         }
 
-
-        public ActionResult EliminaUtilizador(int? id)
+        [HttpDelete]
+		public ActionResult EliminaUtilizador(int? id)
         {
             try
             {

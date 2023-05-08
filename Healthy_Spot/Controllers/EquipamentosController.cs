@@ -11,8 +11,8 @@ namespace Healthy_Spot.Controllers
 {
     public class EquipamentosController : Controller
     {
-        // GET: Equipamentos
-        public ActionResult ListaEquipamentos()
+		[HttpGet]
+		public ActionResult ListaEquipamentos()
         {
             ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
             List<Equipamento> lista = new List<Equipamento>();
@@ -42,11 +42,12 @@ namespace Healthy_Spot.Controllers
             return View(lista);
         }
 
-        // GET: EQUIPAMENTO
+        [HttpGet]
         public ActionResult CriaEquipamento()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult CriaEquipamento(Equipamento equipamento)
         {
@@ -82,7 +83,8 @@ namespace Healthy_Spot.Controllers
             return RedirectToAction("ListaEquipamentos");
         }
 
-        public ActionResult DetalheEquipamento(int? id)
+		[HttpGet]
+		public ActionResult DetalheEquipamento(int? id)
         {
             ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
             Equipamento equipamento = null;
@@ -115,7 +117,8 @@ namespace Healthy_Spot.Controllers
             }
             return RedirectToAction("ListaEquipamentos");
         }
-        //GET
+
+        [HttpPut]
         public ActionResult EditaEquipamento(int? id)
         {
             ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
@@ -150,7 +153,7 @@ namespace Healthy_Spot.Controllers
             return RedirectToAction("ListaEquipamentos");
         }
 
-        [HttpPost]
+        [HttpPut]
         public ActionResult EditaEquipamento(Equipamento equipamento)
         {
             if (ModelState.IsValid)
@@ -197,7 +200,7 @@ namespace Healthy_Spot.Controllers
             return RedirectToAction("ListaEquipamentos");
         }
 
-        //GET
+        [HttpGet]
         public ActionResult EliminaEquipamento(int? id)
         {
             ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
