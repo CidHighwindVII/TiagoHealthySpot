@@ -1,52 +1,51 @@
 ﻿@model IEnumerable<Healthy_Spot.Models.Utilizador>
 
 @{
-    ViewBag.Title = "Lista de Utilizadores";
+			ViewBag.Title = "Lista de Utilizadores";
 }
 
 <h2>Lista de Utilizadores</h2>
 
 <p>
-    @Html.ActionLink("Criar Utilizador", "CriaUtilizador")
+	@Html.ActionLink("Criar Utilizador", "CriaUtilizador")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NUtilizador)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Localidade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataNascimento)
-        </th>
-        <th></th>
-    </tr>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.NUtilizador)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Nome)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Localidade)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.DataNascimento)
+		</th>
+		<th></th>
+	</tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NUtilizador)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Localidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataNascimento)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Editar", "EditaUtilizador", new { id=item.NUtilizador }) |
-            @Html.ActionLink("Detalhe", "DetalheUtilziador", new { id=item.NUtilizador }) |
-            @Html.ActionLink("Eliminar", "EliminaUtilizador", new { id=item.NUtilizador })
-        </td>
-    </tr>
+	@foreach (var item in Model) {
+	<tr>
+		<td>
+			@Html.DisplayFor(modelItem => item.NUtilizador)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Nome)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Localidade)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.DataNascimento)
+		</td>
+
+		<td>
+			@Html.ActionLink("Editar", "EditaUtilizador", new { id=item.NUtilizador }) |
+			@Html.ActionLink("Detalhe", "DetalheUtilziador", new { id=item.NUtilizador }) |
+			@Html.ActionLink("Eliminar", "EliminaUtilizador", new { id=item.NUtilizador })
+		</td>
+	</tr>
 }
-
 </table>

@@ -7,48 +7,47 @@
 <h2>Lista de Equipamentos</h2>
 
 <p>
-    @Html.ActionLink("Criar Equipamento", "CriaEquipamento")
+	@Html.ActionLink("Criar Equipamento", "CriaEquipamento")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NMaquina)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NomeEquipamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoEquipamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MusculoTrabalhado)
-        </th>
-        
-        <th></th>
-    </tr>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.NMaquina)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.NomeEquipamento)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.TipoEquipamento)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.MusculoTrabalhado)
+		</th>
 
-    @foreach (var item in Model)
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NMaquina)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeEquipamento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TipoEquipamento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MusculoTrabalhado)
-            </td>
-            
-            <td>
-                @Html.ActionLink("Editar", "EditaEquipamento", new { id = item.NMaquina }) |
-                @Html.ActionLink("Detalhe", "DetalheEquipamento", new { id = item.NMaquina }) |
-                @Html.ActionLink("Eliminar", "EliminaEquipamento", new { id = item.NMaquina })
-            </td>
-        </tr>
-    }
+	<tr>
+		<td>
+			@Html.DisplayFor(modelItem => item.NMaquina)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.NomeEquipamento)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.TipoEquipamento)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.MusculoTrabalhado)
+		</td>
 
+		<td>
+			@Html.ActionLink("Editar", "EditaEquipamento", new { id = item.NMaquina }) |
+			@Html.ActionLink("Detalhe", "DetalheEquipamento", new { id = item.NMaquina }) |
+			@Html.ActionLink("Eliminar", "EliminaEquipamento", new { id = item.NMaquina })
+		</td>
+	</tr>
+    }
 </table>

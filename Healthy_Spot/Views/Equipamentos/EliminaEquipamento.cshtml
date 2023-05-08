@@ -8,59 +8,57 @@
 
 <h3></h3>
 <div>
-    <h4>Equipamento</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NMaquina)
-        </dt>
+	<h4>Equipamento</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.NMaquina)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NMaquina)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.NMaquina)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NomeEquipamento)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.NomeEquipamento)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NomeEquipamento)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.NomeEquipamento)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TipoEquipamento)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.TipoEquipamento)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TipoEquipamento)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.TipoEquipamento)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MusculoTrabalhado)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.MusculoTrabalhado)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MusculoTrabalhado)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.MusculoTrabalhado)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ImagemPath)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.ImagemPath)
+		</dt>
 
-        <dd>
-            <img class="img-thumbnail img-rounded" src="@Url.Content("~" + Model.ImagemPath)" width="400" height="400" />
-        </dd>
+		<dd>
+			<img class="img-thumbnail img-rounded" src="@Url.Content("~" + Model.ImagemPath)" width="400" height="400" />
+		</dd>
+	</dl>
 
-
-    </dl>
-
-    @using (Html.BeginForm())
+	@using (Html.BeginForm())
     {
-        @Html.AntiForgeryToken()
+	@Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Eliminar" class="btn btn-default" /> |
-            @Html.ActionLink("Lista de Equipamentos", "ListaEquipamentos")
-        </div>
+	<div class="form-actions no-color">
+		<input type="submit" value="Eliminar" class="btn btn-default" /> |
+		@Html.ActionLink("Lista de Equipamentos", "ListaEquipamentos")
+	</div>
     }
 </div>

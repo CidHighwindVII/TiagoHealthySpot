@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Configuration;
-using System.Linq;
-using System.Web;
-using MySql.Data.MySqlClient;
 
 namespace Healthy_Spot.Models
 {
-    public static class ConexaoBD
-    {
-        private static string address;
-        private static int port;
+	public static class ConexaoBD
+	{
+		private static string address;
+		private static int port;
 		private static string database;
 		private static string username;
 		private static string password;
-        private static MySqlConnection conn = null;
+		private static MySqlConnection conn = null;
 
-        public static MySqlConnection ObterConexao()
-        {
-            try
-            {
-                if(conn != null)
-                {
+		public static MySqlConnection ObterConexao()
+		{
+			try
+			{
+				if (conn != null)
+				{
 					address = ConfigurationManager.AppSettings["address"];
 					port = int.Parse(ConfigurationManager.AppSettings["port"]);
 					username = ConfigurationManager.AppSettings["username"];
@@ -33,14 +30,14 @@ namespace Healthy_Spot.Models
 					conn = new MySqlConnection(connectionInfo);
 					conn.Open();
 				}
-                
-                return conn;
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.StackTrace);
-            }
-            return null;
-        }
-    }
+
+				return conn;
+			}
+			catch (Exception ex)
+			{
+				System.Diagnostics.Debug.WriteLine(ex.StackTrace);
+			}
+			return null;
+		}
+	}
 }

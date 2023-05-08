@@ -6,45 +6,42 @@
 
 <h2>Criar Exercício</h2>
 
-
 @using (Html.BeginForm("CriaExercicio", "Exercicio", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
+@Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>Exercicio</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	<h4>Exercicio</h4>
+	<hr />
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+	<div class="form-group">
+		@Html.LabelFor(model => model.NomeExercicio, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.NomeExercicio, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.NomeExercicio, "", new { @class = "text-danger" })
+		</div>
+	</div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.NomeExercicio, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NomeExercicio, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NomeExercicio, "", new { @class = "text-danger" })
-        </div>
-    </div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.NMaquina, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.DropDownListFor(model => model.NMaquina, new SelectList(Utils.GetEquipamentos(), "Value", "Text"), new { @class = "form-control" })
+			@Html.ValidationMessageFor(model => model.NMaquina, "", new { @class = "text-danger" })
+		</div>
+	</div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.NMaquina, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.NMaquina, new SelectList(Utils.GetEquipamentos(), "Value", "Text"), new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.NMaquina, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Criar" class="btn btn-default" />
-        </div>
-    </div>
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" value="Criar" class="btn btn-default" />
+		</div>
+	</div>
 </div>
 }
 
 <div>
-    @Html.ActionLink("Lista de Exercícios", "ListaExercicios")
+	@Html.ActionLink("Lista de Exercícios", "ListaExercicios")
 </div>
-
 
 <script src="~/Scripts/jquery-1.9.0.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

@@ -8,42 +8,41 @@
 
 <h3>Tem a certeza que pretende eliminar este exercício?</h3>
 <div>
-    <h4>Exercicio</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IdExercicio)
-        </dt>
+	<h4>Exercicio</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.IdExercicio)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IdExercicio)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.IdExercicio)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NomeExercicio)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.NomeExercicio)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NomeExercicio)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.NomeExercicio)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NMaquina)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.NMaquina)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NMaquina)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.NMaquina)
+		</dd>
+	</dl>
 
-    </dl>
-
-    @using (Html.BeginForm())
+	@using (Html.BeginForm())
     {
-        @Html.AntiForgeryToken()
+	@Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Eliminar" class="btn btn-default" /> |
-            @Html.ActionLink("Lista de Exercicios", "ListaExercicios")
-        </div>
+	<div class="form-actions no-color">
+		<input type="submit" value="Eliminar" class="btn btn-default" /> |
+		@Html.ActionLink("Lista de Exercicios", "ListaExercicios")
+	</div>
     }
 </div>
