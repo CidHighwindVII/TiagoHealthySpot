@@ -1,37 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using MySql.Data.MySqlClient;
 
 namespace Healthy_Spot.Models
 {
-    public class ConexaoBD
+    public static class ConexaoBD
     {
-        private string host;
-        private int porta;
-        public string bd;
-        public string utilizador;
-        public string password;
-        private MySqlConnection conn = null;
-        public ConexaoBD(string host, int porta, string utilizador, string password, string bd)
-        {
-            this.host = host;
-            this.porta = porta;
-            this.utilizador = utilizador;
-            this.password = password;
-            this.bd = bd;
-        }
+        private static string address;
+        private static int port;
+		private static string database;
+		private static string username;
+		private static string password;
+        private static MySqlConnection conn = null;
 
-        public MySqlConnection ObterConexao()
+        public static MySqlConnection ObterConexao()
         {
             try
             {
-                string connectionInfo = "datasource=" + host + ";port=" + porta + ";username="
-                    + utilizador + ";password=" + password + ";database=" + bd + ";SslMode=none";
+                if(conn != null)
+                {
+					address = ConfigurationManager.AppSettings["address"];
+					port = int.Parse(ConfigurationManager.AppSettings["port"]);
+					username = ConfigurationManager.AppSettings["username"];
+					password = ConfigurationManager.AppSettings["password"];
+					database = ConfigurationManager.AppSettings["database"];
 
-                conn = new MySqlConnection(connectionInfo);
-                conn.Open();
+					string connectionInfo = "datasource=" + address + ";port=" + port + ";username=" + username + ";password=" + password + ";database=" + database + ";SslMode=none";
+
+					conn = new MySqlConnection(connectionInfo);
+					conn.Open();
+				}
+                
                 return conn;
             }
             catch (Exception ex)
@@ -40,6 +42,5 @@ namespace Healthy_Spot.Models
             }
             return null;
         }
-
     }
 }

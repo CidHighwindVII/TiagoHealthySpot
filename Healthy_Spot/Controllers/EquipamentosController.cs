@@ -14,10 +14,9 @@ namespace Healthy_Spot.Controllers
 		[HttpGet]
 		public ActionResult ListaEquipamentos()
         {
-            ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
             List<Equipamento> lista = new List<Equipamento>();
 
-            using (MySqlConnection conexao = conn.ObterConexao())
+            using (MySqlConnection conexao = ConexaoBD.ObterConexao())
             {
                 if (conexao != null)
                 {
@@ -60,10 +59,7 @@ namespace Healthy_Spot.Controllers
 
                 equipamento.Imagem.SaveAs(ControllerContext.HttpContext.Server.MapPath(equipamento.ImagemPath));
 
-               
-                ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
-
-                using (MySqlConnection conexao = conn.ObterConexao())
+                using (MySqlConnection conexao = ConexaoBD.ObterConexao())
                 {
                     if (conexao != null)
                     {
@@ -86,10 +82,9 @@ namespace Healthy_Spot.Controllers
 		[HttpGet]
 		public ActionResult DetalheEquipamento(int? id)
         {
-            ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
             Equipamento equipamento = null;
 
-            using (MySqlConnection conexao = conn.ObterConexao())
+            using (MySqlConnection conexao = ConexaoBD.ObterConexao())
             {
                 if (conexao != null)
                 {
@@ -121,10 +116,9 @@ namespace Healthy_Spot.Controllers
         [HttpPut]
         public ActionResult EditaEquipamento(int? id)
         {
-            ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
             Equipamento equipamento = null;
 
-            using (MySqlConnection conexao = conn.ObterConexao())
+            using (MySqlConnection conexao = ConexaoBD.ObterConexao())
             {
                 if (conexao != null)
                 {
@@ -171,9 +165,7 @@ namespace Healthy_Spot.Controllers
                     img = true;
                 }
 
-                ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
-
-                using (MySqlConnection conexao = conn.ObterConexao())
+                using (MySqlConnection conexao = ConexaoBD.ObterConexao())
                 {
                     if (conexao != null)
                     {
@@ -203,10 +195,9 @@ namespace Healthy_Spot.Controllers
         [HttpGet]
         public ActionResult EliminaEquipamento(int? id)
         {
-            ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
             Equipamento equipamento = null;
 
-            using (MySqlConnection conexao = conn.ObterConexao())
+            using (MySqlConnection conexao = ConexaoBD.ObterConexao())
             {
                 if (conexao != null)
                 {
@@ -241,9 +232,7 @@ namespace Healthy_Spot.Controllers
         [HttpPost, ActionName("EliminaEquipamento")]
         public ActionResult EliminaEquipamentoConfirmacao(int? id)
         {
-            ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
-
-            using (MySqlConnection conexao = conn.ObterConexao())
+            using (MySqlConnection conexao = ConexaoBD.ObterConexao())
             {
                 if (conexao != null)
                 {

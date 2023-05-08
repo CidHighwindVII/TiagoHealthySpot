@@ -23,10 +23,7 @@ namespace Healthy_Spot.Controllers
            
                 if (ModelState.IsValid)
                 {
-
-                    ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
-
-                    using (MySqlConnection conexao = conn.ObterConexao())
+                    using (MySqlConnection conexao = ConexaoBD.ObterConexao())
                     {
                         if (conexao != null)
                         {
@@ -48,10 +45,9 @@ namespace Healthy_Spot.Controllers
         [HttpGet]
         public ActionResult DetalheExercicio(int? id)
         {
-            ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
             Exercicio exercicio = null;
 
-            using (MySqlConnection conexao = conn.ObterConexao())
+            using (MySqlConnection conexao = ConexaoBD.ObterConexao())
             {
                 if (conexao != null)
                 {
@@ -83,10 +79,10 @@ namespace Healthy_Spot.Controllers
         public ActionResult ListaExercicios()
         {
            
-                    ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
+                    
                     List<Exercicio> lista = new List<Exercicio>();
 
-                    using (MySqlConnection conexao = conn.ObterConexao())
+                    using (MySqlConnection conexao = ConexaoBD.ObterConexao())
                     {
                         if (conexao != null)
                         {
@@ -114,10 +110,10 @@ namespace Healthy_Spot.Controllers
         [HttpPut]
         public ActionResult EditaExercicio(int? id)
         {
-            ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
+            
             Exercicio exercicio = null;
 
-            using (MySqlConnection conexao = conn.ObterConexao())
+            using (MySqlConnection conexao = ConexaoBD.ObterConexao())
             {
                 if (conexao != null)
                 {
@@ -149,9 +145,7 @@ namespace Healthy_Spot.Controllers
         {
             if (ModelState.IsValid)
             {
-                ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
-
-                using (MySqlConnection conexao = conn.ObterConexao())
+                using (MySqlConnection conexao = ConexaoBD.ObterConexao())
                 {
                     if (conexao != null)
                     {
@@ -175,10 +169,9 @@ namespace Healthy_Spot.Controllers
         [HttpDelete]
         public ActionResult EliminaExercicio(int? id)
         {
-            ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
             Exercicio exercicio = null;
 
-            using (MySqlConnection conexao = conn.ObterConexao())
+            using (MySqlConnection conexao = ConexaoBD.ObterConexao())
             {
                 if (conexao != null)
                 {
@@ -208,9 +201,7 @@ namespace Healthy_Spot.Controllers
         [HttpPost, ActionName("EliminaExercicio")]
         public ActionResult EliminaExercicioConfirmacao(int? id)
         {
-            ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
-
-            using (MySqlConnection conexao = conn.ObterConexao())
+            using (MySqlConnection conexao = ConexaoBD.ObterConexao())
             {
                 if (conexao != null)
                 {

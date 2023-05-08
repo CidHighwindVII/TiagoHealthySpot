@@ -13,10 +13,10 @@ namespace Healthy_Spot.Utils
 
         public static List<SelectListItem> GetEquipamentos()
         {
-            ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
             List<SelectListItem> lista = new List<SelectListItem>();
 
-            using (MySqlConnection conexao = conn.ObterConexao())
+            using (MySqlConnection conexao = ConexaoBD.ObterConexao())
+
             {
                 if (conexao != null)
                 {

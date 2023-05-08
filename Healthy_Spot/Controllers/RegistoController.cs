@@ -33,9 +33,7 @@ namespace Healthy_Spot.Controllers
 
                 utilizador.Imagem.SaveAs(ControllerContext.HttpContext.Server.MapPath(utilizador.ImagemPath));
 
-                ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
-
-                using (MySqlConnection conexao = conn.ObterConexao())
+                using (MySqlConnection conexao = ConexaoBD.ObterConexao())
                 {
                     if (conexao != null)
                     {
@@ -107,9 +105,7 @@ namespace Healthy_Spot.Controllers
         {
             //if (ModelState.IsValid)
             //{
-                ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
-
-                using (MySqlConnection conexao = conn.ObterConexao())
+                using (MySqlConnection conexao = ConexaoBD.ObterConexao())
                 {
                     if (conexao != null)
                     {
@@ -141,11 +137,10 @@ namespace Healthy_Spot.Controllers
         [AllowAnonymous]
         public ContentResult AtivarConta()
         {
-            ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
             string hash = Request.QueryString.Get("hash");
             if (hash != null)
             {
-                using (MySqlConnection conexao = conn.ObterConexao())
+                using (MySqlConnection conexao = ConexaoBD.ObterConexao())
                     if (conexao != null)
                     {
                         using (MySqlCommand cmd = new MySqlCommand("update utilizadores set ativo=1 where hashLink=@hashLink and idutilizador <> -1", conexao))

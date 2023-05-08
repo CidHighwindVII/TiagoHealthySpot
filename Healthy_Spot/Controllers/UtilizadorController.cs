@@ -18,10 +18,10 @@ namespace Healthy_Spot.Controllers
             {
                 if (Session["Login"] != null)
                 {
-                    ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
+                    
                     List<Utilizador> lista = new List<Utilizador>();
 
-                    using (MySqlConnection conexao = conn.ObterConexao())
+                    using (MySqlConnection conexao = ConexaoBD.ObterConexao())
                     {
                         if (conexao != null)
                         {
@@ -64,11 +64,10 @@ namespace Healthy_Spot.Controllers
             try
             {
                 if (Session["login"] == null) return RedirectToAction("Login", "Registo");
-
-                ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
+           
                 Utilizador Util = null;
 
-                using (MySqlConnection conexao = conn.ObterConexao())
+                using (MySqlConnection conexao = ConexaoBD.ObterConexao())
                 {
                     if (conexao != null)
                     {
@@ -110,10 +109,9 @@ namespace Healthy_Spot.Controllers
             {
                 if (Session["login"] == null) return RedirectToAction("Login", "Registo");
 
-                ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
                 Utilizador Util = null;
 
-                using (MySqlConnection conexao = conn.ObterConexao())
+                using (MySqlConnection conexao = ConexaoBD.ObterConexao())
                 {
                     if (conexao != null)
                     {
@@ -154,9 +152,9 @@ namespace Healthy_Spot.Controllers
             try
             {
                 if (Session["login"] == null) return RedirectToAction("Login", "Registo");
-                ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
+                
 
-                using (MySqlConnection conexao = conn.ObterConexao())
+                using (MySqlConnection conexao = ConexaoBD.ObterConexao())
                 {
                     if (conexao != null)
                     {
@@ -198,10 +196,10 @@ namespace Healthy_Spot.Controllers
             {
                 if (Session["login"] == null) return RedirectToAction("Login", "Registo");
 
-                ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
+                
                 Utilizador Util = null;
 
-                using (MySqlConnection conexao = conn.ObterConexao())
+                using (MySqlConnection conexao = ConexaoBD.ObterConexao())
                 {
                     if (conexao != null)
                     {
@@ -244,10 +242,10 @@ namespace Healthy_Spot.Controllers
             {
                 if (Session["login"] == null) return RedirectToAction("Login", "Registo");
 
-                ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "root", "pap_ginasio");
+                
 
 
-                using (MySqlConnection conexao = conn.ObterConexao())
+                using (MySqlConnection conexao = ConexaoBD.ObterConexao())
                 {
                     if (conexao != null)
                     {
